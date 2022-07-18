@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jun  3 03:23:04 2022
+
+@author: amit.tomar
+"""
+
+"""
+Created on Mon May  9 22:59:56 2022
+
+@author: amit.tomar
+"""
+
+import pandas as pd 
+import csv 
+import os 
+import time
+import re
+import xlrd 
+import glob
+import datetime 
+
+import pandas as pd
+import os, glob
+
+
+root_path = "C:/Users/amit.tomar/Downloads/QA/QA/"
+
+
+filenames = glob.glob(os.path.join(root_path + "/*.csv"))
+
+list_ = pd.DataFrame()
+
+for filename in filenames:
+   ts = pd.read_csv(filename)
+   #ts.columns=s
+   #print(filename)
+   #print(ts.shape)
+   list_=list_.append(ts)
+
+#list_['Date']=pd.to_datetime(list_['Date'])
+list_.to_csv("C:/Users/amit.tomar/Downloads/QA/Output/QA.csv",index=False) 
